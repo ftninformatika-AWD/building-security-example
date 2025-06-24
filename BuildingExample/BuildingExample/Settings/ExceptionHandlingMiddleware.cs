@@ -26,6 +26,7 @@ namespace BuildingExample.Settings
             {
                 BadRequestException => StatusCodes.Status400BadRequest,
                 NotFoundException => StatusCodes.Status404NotFound,
+                UnauthorizedException => StatusCodes.Status401Unauthorized,
                 _ => StatusCodes.Status500InternalServerError
             };
             var response = new

@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BuildingExample.DTOs;
 using BuildingExample.Services;
-using BuildingExample.DTOs;
 using BuildingExample.Validators;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BuildingExample.Controllers
 {
@@ -28,12 +29,14 @@ namespace BuildingExample.Controllers
             return Ok(await _apartmentService.GetAllCustom());
         }
 
+        [Authorize(Roles = "Administrator,Seller")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetApartment(int id)
         {
             return Ok(await _apartmentService.GetOne(id));
         }
 
+        [Authorize(Roles = "Administrator,Seller")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutApartment(int id, ApartmentUpdateDTO apartment)
         {
@@ -45,6 +48,7 @@ namespace BuildingExample.Controllers
             return Ok(savedApartment);
         }
 
+        [Authorize(Roles = "Administrator,Seller")]
         [HttpPost]
         public async Task<IActionResult> PostApartment(ApartmentCreateDTO apartment)
         {
@@ -57,6 +61,7 @@ namespace BuildingExample.Controllers
             return Created(string.Empty, savedApartment);
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteApartment(int id)
         {

@@ -1,9 +1,11 @@
 ﻿using BuildingExample.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BuildingExample.Repositories
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -13,6 +15,12 @@ namespace BuildingExample.Repositories
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            // Seed Roles
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole { Name = "Administrator", NormalizedName = "ADMINISTRATOR" },
+                new IdentityRole { Name = "Seller", NormalizedName = "SELLER" }
+            );
 
             // Seed Buildings
             modelBuilder.Entity<Building>().HasData(
