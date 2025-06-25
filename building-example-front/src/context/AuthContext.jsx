@@ -1,6 +1,10 @@
 import { jwtDecode } from 'jwt-decode';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
+// globalna promenljiva i getter za logout
+let globalLogout = null;
+export const getGlobalLogout = () => globalLogout;
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -41,6 +45,8 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(false);
     setRole(null);
   };
+
+  globalLogout = logout;
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, login, logout, role }}>

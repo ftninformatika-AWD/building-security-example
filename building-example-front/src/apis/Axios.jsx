@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getGlobalLogout } from '../context/AuthContext';
 
 var Axios = axios.create({
   baseURL: 'http://localhost:5231/api',
@@ -21,5 +22,24 @@ Axios.interceptors.request.use(
     return Promise.reject(error);
   }
 )
+
+Axios.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      // Logika za automatsku odjavu korisnika 
+      alert('Not authorized! Please sign in again.')
+
+      setTimeout(() => {
+        const logout = getGlobalLogout();
+        if (logout) {
+          logout(); // Poziva logout iz konteksta
+        }
+      }, 1000);
+      
+    }
+    return Promise.reject(error);
+  }
+);
 
 export default Axios;

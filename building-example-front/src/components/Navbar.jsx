@@ -29,7 +29,7 @@ const Navbar = () => {
                     <li><Link to="/signin" className="navbar-link">Sign in</Link></li>
                 </>
                 ) : (
-                <li><button onClick={logout} className="navbar-link">Logout</button></li>
+                <li><button onClick={logout} className="navbar-link">Sign out</button></li>
             )}
             </ul>
         </nav>
