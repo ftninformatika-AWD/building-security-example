@@ -38,15 +38,17 @@ namespace BuildingExample.Services
         public async Task<List<ApartmentViewDTO>> GetAll()
         {
             var apartments = await _apartmentRepository.GetAll();
-            return apartments.AsQueryable().ProjectTo<ApartmentViewDTO>
-                (_mapper.ConfigurationProvider).ToList();
+            return apartments
+                .Select(_mapper.Map<ApartmentViewDTO>)
+                .ToList();
         }
 
         public async Task<List<ApartmentCustomDTO>> GetAllCustom()
         {
             var apartments = await _apartmentRepository.GetAll();
-            return apartments.AsQueryable().ProjectTo<ApartmentCustomDTO>
-                (_mapper.ConfigurationProvider).ToList();
+            return apartments
+                .Select(_mapper.Map<ApartmentCustomDTO>)
+                .ToList();
         }
 
         public async Task<ApartmentDetailsDTO> GetOne(int id)
@@ -75,9 +77,9 @@ namespace BuildingExample.Services
         public async Task<List<ApartmentViewDTO>> SearchByArea(double from, double to)
         {
             var apartments = await _apartmentRepository.SearchByArea(from, to);
-            return apartments.AsQueryable().ProjectTo<ApartmentViewDTO>
-                (_mapper.ConfigurationProvider).ToList();
-
+            return apartments
+                .Select(_mapper.Map<ApartmentViewDTO>)
+                .ToList();
         }
     }
 }
