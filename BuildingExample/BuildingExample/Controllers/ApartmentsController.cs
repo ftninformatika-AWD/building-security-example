@@ -75,5 +75,17 @@ namespace BuildingExample.Controllers
             ApartmentValidator.ValidateSearchApartment(dto);
             return Ok(await _apartmentService.SearchByArea(dto.AreaFrom, dto.AreaTo));
         }
+
+        [HttpPost("search/detailed")]
+        public async Task<IActionResult> SearchApartmentsByBuildingAndFloor(ApartmentBuildingSearchDTO dto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+
+            }
+            ApartmentValidator.ValidateSearchApartmentsByBuildingAndFloor(dto);
+            return Ok(await _apartmentService.SearchByFloorAndBuilding(dto.FloorFrom, dto.FloorTo, dto.BuildingId));
+        }
     }
 }

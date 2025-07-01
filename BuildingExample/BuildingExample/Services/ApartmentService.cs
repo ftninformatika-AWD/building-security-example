@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using BuildingExample.DTOs;
 using BuildingExample.Exceptions;
 using BuildingExample.Models;
@@ -77,6 +76,14 @@ namespace BuildingExample.Services
         public async Task<List<ApartmentViewDTO>> SearchByArea(double from, double to)
         {
             var apartments = await _apartmentRepository.SearchByArea(from, to);
+            return apartments
+                .Select(_mapper.Map<ApartmentViewDTO>)
+                .ToList();
+        }
+
+        public async Task<List<ApartmentViewDTO>> SearchByFloorAndBuilding(double floorFrom, double floorTo, int buildingId)
+        {
+            var apartments = await _apartmentRepository.SearchByFloorAndBuilding(floorFrom, floorTo, buildingId);
             return apartments
                 .Select(_mapper.Map<ApartmentViewDTO>)
                 .ToList();
