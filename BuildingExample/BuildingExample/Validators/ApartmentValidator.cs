@@ -18,5 +18,15 @@ namespace BuildingExample.Validators
                 throw new InvalidAreaBadRequestException();
             }
         }
+
+        public static void ValidateSearchApartmentsByBuildingAndFloor(ApartmentBuildingSearchDTO dto)
+        {
+            if (dto.FloorFrom > dto.FloorTo)
+            {
+                // ako validacija nije uspešna, baciti izuzetak koji sadrži razlog
+                // zašto je validacija neuspešna
+                throw new InvalidFloorBadRequestException();
+            }
+        }
     }
 }

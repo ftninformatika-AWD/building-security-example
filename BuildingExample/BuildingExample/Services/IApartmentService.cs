@@ -11,5 +11,6 @@ namespace BuildingExample.Services
         Task Delete(int id);
         Task<ApartmentDetailsDTO> Update(int id, ApartmentUpdateDTO dto);
         Task<List<ApartmentViewDTO>> SearchByArea(double from, double to);
+        Task<List<ApartmentViewDTO>> SearchByFloorAndBuilding(double floorFrom, double floorTo, int buildingId);
     }
 }

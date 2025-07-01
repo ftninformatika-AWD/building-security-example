@@ -47,5 +47,14 @@ namespace BuildingExample.Repositories
                 .OrderBy(a => a.Area)
                 .ToListAsync();
         }
+
+        public async Task<List<Apartment>> SearchByFloorAndBuilding(double floorFrom, double floorTo, int buildingId)
+        {
+            return await _dbContext.Apartments
+               .Include(a => a.Building)
+               .Where(a => a.Floor >= floorFrom && a.Floor <= floorTo && a.BuildingId == buildingId)
+               .OrderByDescending(a => a.BuildingId)
+               .ToListAsync();
+        }
     }
 }
