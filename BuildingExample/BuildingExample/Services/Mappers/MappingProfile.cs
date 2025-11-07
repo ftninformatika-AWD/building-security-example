@@ -1,0 +1,21 @@
+﻿using AutoMapper;
+using BuildingExample.Domain;
+using BuildingExample.Services.DTOs;
+
+namespace BuildingExample.Services.Mappers
+{
+    public class MappingProfile: Profile
+    {
+        public MappingProfile()
+        {
+            CreateMap<Apartment, ApartmentViewDTO>();
+            CreateMap<Apartment, ApartmentDetailsDTO>();
+            CreateMap<Apartment, ApartmentCustomDTO>()
+                .ForMember(dest => dest.Location, opt => opt.MapFrom(src => $"{src.Building!.Address} ({src.Building!.YearOfConstruction})"))
+                .ForMember(dest => dest.Building, opt => opt.MapFrom(src => $"Floors: {src.Building!.Floors}; Elevator: {(src.Building!.HasElevator ? "Yes" : "No") }"));
+
+            CreateMap<ApartmentCreateDTO, Apartment>();
+            CreateMap<ApartmentUpdateDTO, Apartment>();
+        }
+    }
+}

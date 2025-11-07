@@ -1,11 +1,8 @@
-﻿using BuildingExample.DTOs;
-using BuildingExample.Exceptions;
-using BuildingExample.Migrations;
-using BuildingExample.Models;
-using Humanizer;
+﻿using BuildingExample.Domain;
+using BuildingExample.Services.DTOs;
+using BuildingExample.Services.Exceptions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
-using Serilog;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;

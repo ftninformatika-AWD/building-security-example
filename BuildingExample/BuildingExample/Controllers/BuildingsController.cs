@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using BuildingExample.Models;
+using BuildingExample.Domain;
 using BuildingExample.Services;
 
 namespace BuildingExample.Controllers

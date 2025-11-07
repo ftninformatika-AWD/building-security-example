@@ -1,4 +1,4 @@
-﻿using BuildingExample.Models;
+﻿using BuildingExample.Domain;
 
 namespace BuildingExample.Services
 {

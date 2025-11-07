@@ -1,4 +1,4 @@
-﻿using BuildingExample.DTOs;
+﻿using BuildingExample.Services.DTOs;
 using System.Security.Claims;
 
 namespace BuildingExample.Services

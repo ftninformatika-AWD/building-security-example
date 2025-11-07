@@ -1,8 +1,8 @@
-﻿using BuildingExample.Models;
+﻿using BuildingExample.Controllers.Middleware;
+using BuildingExample.Domain;
 using BuildingExample.Repositories;
 using BuildingExample.Services;
-using BuildingExample.Settings;
-using BuildingExample.Utils;
+using BuildingExample.Services.Mappers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

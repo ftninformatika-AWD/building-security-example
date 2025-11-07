@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using BuildingExample.DTOs;
-using BuildingExample.Exceptions;
-using BuildingExample.Models;
-using BuildingExample.Repositories;
+using BuildingExample.Domain;
+using BuildingExample.Services.DTOs;
+using BuildingExample.Services.Exceptions;
 
 namespace BuildingExample.Services
 {

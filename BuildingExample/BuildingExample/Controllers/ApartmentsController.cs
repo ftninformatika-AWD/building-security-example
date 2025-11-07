@@ -1,6 +1,5 @@
-﻿using BuildingExample.DTOs;
-using BuildingExample.Services;
-using BuildingExample.Validators;
+﻿using BuildingExample.Services;
+using BuildingExample.Services.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -77,7 +76,6 @@ namespace BuildingExample.Controllers
                 return BadRequest(ModelState);
 
             }
-            ApartmentValidator.ValidateSearchApartment(dto);
             return Ok(await _apartmentService.SearchByArea(dto.AreaFrom, dto.AreaTo));
         }
 
@@ -89,7 +87,6 @@ namespace BuildingExample.Controllers
                 return BadRequest(ModelState);
 
             }
-            ApartmentValidator.ValidateSearchApartmentsByBuildingAndFloor(dto);
             return Ok(await _apartmentService.SearchByFloorAndBuilding(dto.FloorFrom, dto.FloorTo, dto.BuildingId));
         }
     }

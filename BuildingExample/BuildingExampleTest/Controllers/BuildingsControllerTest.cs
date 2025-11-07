@@ -1,9 +1,9 @@
 ﻿using BuildingExample.Controllers;
-using BuildingExample.Exceptions;
-using BuildingExample.Models;
+using BuildingExample.Domain;
 using BuildingExample.Services;
 using Microsoft.AspNetCore.Mvc;
 using NSubstitute;
+using BuildingExample.Services.Exceptions;
 
 namespace BuildingExampleTest.Controllers
 {

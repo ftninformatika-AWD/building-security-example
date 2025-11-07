@@ -1,9 +1,8 @@
-﻿using BuildingExample.Exceptions;
-using BuildingExample.Models;
-using BuildingExample.Repositories;
+﻿using BuildingExample.Domain;
 using BuildingExample.Services;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
+using BuildingExample.Services.Exceptions;
 
 namespace BuildingExampleTest.Services
 {

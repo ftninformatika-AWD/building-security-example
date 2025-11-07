@@ -1,4 +1,4 @@
-﻿using BuildingExample.DTOs;
+﻿using BuildingExample.Services.DTOs;
 
 namespace BuildingExample.Services
 {

@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
-using BuildingExample.DTOs;
-using BuildingExample.Exceptions;
-using BuildingExample.Models;
-using BuildingExample.Repositories;
+using BuildingExample.Domain;
 using BuildingExample.Services;
-using BuildingExample.Settings;
 using NSubstitute;
+using BuildingExample.Services.DTOs;
+using BuildingExample.Services.Exceptions;
+using BuildingExample.Services.Mappers;
 
 namespace BuildingExampleTest.Services
 {

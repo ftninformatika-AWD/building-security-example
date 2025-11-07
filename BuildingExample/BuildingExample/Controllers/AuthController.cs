@@ -1,5 +1,5 @@
-﻿using BuildingExample.DTOs;
-using BuildingExample.Services;
+﻿using BuildingExample.Services;
+using BuildingExample.Services.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
